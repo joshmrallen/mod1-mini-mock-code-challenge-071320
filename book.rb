@@ -15,13 +15,16 @@ class Book
 
     def add_author(author)
         #associates an author with a book through publisher by creating a new instance of publisher
-        Publisher.new(self, author)
+        Publish.new(self, author)
     end
 
     def authors
         Publish.all.select do |project|
             project.book == self
+        end.map do |project|
+            project.author.name
         end
+
     end
 
 
