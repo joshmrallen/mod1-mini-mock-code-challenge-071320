@@ -1,6 +1,7 @@
 require 'pry'
 require_relative './book'
 require_relative './author'
+require_relative './publish'
 
 joyce = Author.new("James Joyce")
 adams = Author.new("Ansel Adams")
