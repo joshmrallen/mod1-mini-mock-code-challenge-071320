@@ -33,9 +33,15 @@ class Author
         Author.all[index]
     end
 
-    def books
+    def published
         Publish.all.select do |book|
             book.author == self
+        end
+    end
+
+    def books
+        published.map do |project|
+            project.book
         end
     end
 
@@ -46,7 +52,7 @@ class Author
 
     def total_words
         count = books.map do |book|
-            book.book.word_count
+            book.word_count
         end.sum
         count
     end
